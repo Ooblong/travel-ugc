@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sairah González | Hospitality Content Creator</title>
+  <meta name="description" content="Photography and short-form video for hotels, Airbnb hosts and holiday rentals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#top" aria-label="Sairah González, home">
+      <svg class="nav__mark" viewBox="0 0 21 21" aria-hidden="true">
+        <g fill="currentColor">
+          <circle cx="10.5" cy="2.39" r="2.39"/><circle cx="16.24" cy="4.76" r="2.39"/>
+          <circle cx="18.61" cy="10.5" r="2.39"/><circle cx="16.24" cy="16.24" r="2.39"/>
+          <circle cx="10.5" cy="18.61" r="2.39"/><circle cx="4.76" cy="16.24" r="2.39"/>
+          <circle cx="2.39" cy="10.5" r="2.39"/><circle cx="4.76" cy="4.76" r="2.39"/>
+        </g>
+      </svg>SAIRAH GONZÁLEZ
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="#work">WORK</a>
+      <a href="#services">SERVICES</a>
+      <a href="#about">ABOUT</a>
+      <a href="#" data-mailto>CONTACT</a>
+    </nav>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Work-section nav (Aerra-style). Shown instead of the normal nav while the Work wall is on screen. -->
+  <div class="wn" id="wn" inert>
+    <div class="wn-pill wn-head" id="wn-head">
+      <div class="wn-head__row">
+        <a class="wn-brand" href="#top">SAIRAH GONZÁLEZ</a>
+        <button class="wn-menu-btn" id="wn-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="wn-menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <div class="wn-menu" id="wn-menu">
+        <nav class="wn-menu__inner" aria-label="Main">
+          <a href="#work">WORK</a>
+          <a href="#services">SERVICES</a>
+          <a href="#about">ABOUT</a>
+          <a href="#" data-mailto>CONTACT</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="wn-bl">
+      <div class="wn-pill wn-me">
+        <span class="wn-me__img" id="wn-me-img"></span>
+        <span class="wn-me__name">SAIRAH GONZÁLEZ</span>
+      </div>
+      <div class="wn-pill wn-soc" id="wn-soc"></div>
+    </div>
+
+    <div class="wn-pill wn-cat" id="wn-cat">
+      <div class="wn-cat__list" id="wn-cat-list-wrap"><ul class="wn-cat__inner" id="wn-cat-list"></ul></div>
+      <button class="wn-cat__btn" id="wn-cat-btn" type="button" aria-expanded="false" aria-controls="wn-cat-list-wrap">
+        <span class="wn-roll"><span id="wn-cat-label">Selected Work</span><span>Choose Category</span></span>
+        <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="wheel" id="wheel" aria-label="Selected work"><div class="wheel__spin" id="spin"></div></div>
+
+      <div class="hero__body">
+        <div class="hero__avatar" id="avatar" aria-hidden="true"></div>
+        <h1 class="hero__title">SAIRAH GONZÁLEZ</h1>
+        <p class="hero__role">Hospitality Content Creator</p>
+        <p class="hero__copy">Photography and short-form video for hotels, Airbnb hosts and holiday rentals. Content that helps your property stand out and earn more bookings.</p>
+        <ul class="hero__links" id="social"></ul>
+      </div>
+    </section>
+
+    <!-- Section 2: Work. Cards are built from the "work" list in config.js -->
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <h2 class="section__title" id="work-title">WORK</h2>
+      <div class="work__grid" id="work-grid"></div>
+    </section>
+
+    <!-- Section 3: Services. Rows are built from the "services" list in config.js -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="services__side">
+        <h2 class="section__title" id="services-title">SERVICES</h2>
+      </div>
+      <div class="services__main">
+        <ol class="svc" id="svc-list"></ol>
+        <p class="svc__note" id="svc-note"></p>
+        <ul class="hero__links svc__cta" id="svc-cta"></ul>
+      </div>
+    </section>
+
+    <!-- Section 4: About. Text comes from aboutIntro / aboutDetails in config.js -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="about__side">
+        <h2 class="section__title" id="about-title">ABOUT</h2>
+        <dl class="about__details" id="about-details"></dl>
+      </div>
+      <div class="about__main">
+        <p class="about__intro" id="about-intro"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full-screen viewer that opens when a Work card is clicked -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+    <div class="lb__bar">
+      <p class="lb__title" id="lb-title"></p>
+      <p class="lb__count" id="lb-count" aria-live="polite"></p>
+      <button class="lb__close" id="lb-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="lb__stage" id="lb-stage"></div>
+    <button class="lb__nav lb__nav--prev" id="lb-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="lb__nav lb__nav--next" id="lb-next" aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
