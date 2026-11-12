@@ -21,7 +21,7 @@
   }
   var ul = document.getElementById("social");
   S.socials.forEach(function (s) { addLink(ul, s.label, s.url, true); });
-  addLink(ul, "Email me", mailto, false);   // opens an email to S.email
+  addLink(ul, S.email, mailto, false);   // shows your address; opens an email to it
 
   /* ---- Cursor dot (Aerra-style) ----
      Replaces the normal pointer (hidden via the has-dot class) and follows the mouse.
@@ -66,6 +66,40 @@
     else dd.textContent = d.value;
     dl.appendChild(dt); dl.appendChild(dd);
   });
+
+  /* ---- Contact form ----
+     On "Send message" the visitor's own email app opens with a message to you, already filled in
+     with what they typed. Name, email and message are required. */
+  var cform = document.getElementById("contact-form");
+  if (cform) {
+    var cstatus = document.getElementById("contact-status");
+    cform.addEventListener("input", function (e) {
+      var f = e.target.closest(".field"); if (f) f.classList.remove("is-invalid");
+    });
+    cform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var bad = [];
+      ["name", "email", "message"].forEach(function (n) {
+        var el = cform.elements[n];
+        var ok = el.value.trim() !== "" && (n !== "email" || el.checkValidity());
+        el.closest(".field").classList.toggle("is-invalid", !ok);
+        if (!ok) bad.push(el);
+      });
+      if (bad.length) {
+        cstatus.textContent = "Please add your name, a valid email and a short message.";
+        bad[0].focus();
+        return;
+      }
+      var v = function (n) { return cform.elements[n].value.trim(); };
+      var body = "Name: " + v("name") + "\nEmail: " + v("email") +
+        (v("service") ? "\nService: " + v("service") : "") +
+        (v("phone") ? "\nMobile: " + v("phone") : "") +
+        "\n\n" + v("message");
+      var subject = "Enquiry from " + v("name") + (v("service") ? " — " + v("service") : "");
+      window.location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      cstatus.textContent = "Your email app should open with your message ready to send. If it doesn't, email " + S.email + ".";
+    });
+  }
 
   /* ---- Services list ---- */
   var svc = document.getElementById("svc-list");

@@ -27,7 +27,7 @@
       <a href="#work">WORK</a>
       <a href="#services">SERVICES</a>
       <a href="#about">ABOUT</a>
-      <a href="#" data-mailto>CONTACT</a>
+      <a href="#contact">CONTACT</a>
     </nav>
     <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span>
@@ -48,7 +48,7 @@
           <a href="#work">WORK</a>
           <a href="#services">SERVICES</a>
           <a href="#about">ABOUT</a>
-          <a href="#" data-mailto>CONTACT</a>
+          <a href="#contact">CONTACT</a>
         </nav>
       </div>
     </div>
@@ -109,6 +109,36 @@
       </div>
       <div class="about__main">
         <p class="about__intro" id="about-intro"></p>
+
+        <!-- Contact form (copied from the reference's LET'S TALK). Send opens the visitor's email app
+             with everything filled in, addressed to you — no sign-up or extra service needed. -->
+        <div class="contact" id="contact">
+          <h3 class="contact__title">LET’S TALK</h3>
+          <form class="contact__form" id="contact-form" novalidate>
+            <label class="field">
+              <span class="field__label">Name</span>
+              <span class="field__box"><input name="name" type="text" autocomplete="name" placeholder="Jane Smith" required></span>
+            </label>
+            <label class="field">
+              <span class="field__label">Email</span>
+              <span class="field__box"><input name="email" type="email" autocomplete="email" placeholder="jane@example.com" required></span>
+            </label>
+            <label class="field">
+              <span class="field__label">Service</span>
+              <span class="field__box"><input name="service" type="text" placeholder="e.g. Property photography"></span>
+            </label>
+            <label class="field">
+              <span class="field__label">Mobile number</span>
+              <span class="field__box"><input name="phone" type="tel" autocomplete="tel" placeholder="+44 7700 900000"></span>
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Message</span>
+              <span class="field__box field__box--area"><textarea name="message" placeholder="Tell me about your property, dates and location" required></textarea></span>
+            </label>
+            <button class="contact__send" type="submit">Send message</button>
+            <p class="contact__status" id="contact-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
